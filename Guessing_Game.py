@@ -1,15 +1,25 @@
-num="5"
+import random
+
+
+num=random.randint(1,10)
 guess=""
 count=0
 limit=3
 out=False
-
-while guess!=num and not out:
-    if count < limit:
-        guess= input("enter your guess : ")
+try:
+   while guess!=num and not out:
+      if count < limit:
+        guess= int(input("enter your guess : "))
         count+=1
-    else:
+        if guess< num:
+           print("the numder is bigger")
+        elif guess> num:
+           print("the numder is smaller")
+      else:
         out=True
+except ValueError:
+   print ("please enter numbers ")
+
 if out:
     print("you lose")   
 else:
